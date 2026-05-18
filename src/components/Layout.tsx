@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import { User } from '../types';
+import type { User } from '../types';
 import './Layout.css';
 
 interface LayoutProps {
