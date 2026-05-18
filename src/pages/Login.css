@@ -1,0 +1,212 @@
+.login-page {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background accents */
+.login-page::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 20% 50%, rgba(139, 0, 0, 0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(139, 0, 0, 0.04) 0%, transparent 40%),
+              radial-gradient(ellipse at 50% 80%, rgba(139, 0, 0, 0.03) 0%, transparent 40%);
+  animation: bgShift 20s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes bgShift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-2%, -1%) rotate(2deg); }
+}
+
+/* Language Selector (Top Left) */
+.login-header-left {
+  position: absolute;
+  top: 24px;
+  inset-inline-start: 24px;
+  z-index: 100;
+}
+
+.lang-dropdown-wrapper {
+  position: relative;
+}
+
+.lang-selector-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 0, 0, 0.2);
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.lang-selector-btn:hover {
+  background: rgba(139, 0, 0, 0.1);
+  border-color: rgba(139, 0, 0, 0.3);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-start: 0;
+  width: 220px;
+  padding: 8px;
+  background: #0d0d0d;
+  border: 1px solid rgba(139, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.lang-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lang-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-item.active {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 0, 0, 0.2);
+}
+
+.lang-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lang-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.lang-sub {
+  font-size: 11px;
+  color: #666;
+}
+
+.check-mark {
+  color: #8b0000;
+  font-weight: 700;
+}
+
+/* Center Container */
+.login-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Branding Section */
+.branding-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-box {
+  width: 80px;
+  height: 80px;
+  background: #0d0d0d;
+  border: 1px solid rgba(139, 0, 0, 0.2);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
+.main-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.brand-subtitle {
+  color: #888;
+  font-size: 16px;
+}
+
+/* Login Card */
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.card-subtitle {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.discord-login-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background-color: #5865F2;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.2s;
+  font-family: 'Tajawal', sans-serif;
+  border: 1px solid transparent;
+}
+
+.discord-login-btn:hover {
+  background-color: #4752c4;
+}
+
+.discord-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.terms-footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.6;
+}

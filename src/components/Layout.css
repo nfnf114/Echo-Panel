@@ -1,0 +1,31 @@
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px; /* Sidebar width */
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0d0d0d;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.page-content {
+  flex: 1;
+  padding: 40px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}

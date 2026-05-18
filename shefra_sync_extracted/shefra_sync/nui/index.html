@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: transparent; overflow: hidden; }
+        canvas { display: none; }
+    </style>
+</head>
+<body>
+    <canvas id="capture-canvas" width="512" height="512"></canvas>
+
+    <script>
+        // ============================================================
+        // SHEFRA SYNC - Silent Mugshot Engine
+        // Method: renzu_multicharacter's proven fetch → FileReader flow
+        // Upload: NUI → Backend directly (bypass PerformHttpRequest)
+        // ============================================================
+
+        window.addEventListener('message', function(event) {
+            if (event.data.action !== 'capture_headshot') return;
+
+            const txd        = event.data.txd;
+            const citizenid  = event.data.citizenid;
+            const backendUrl = event.data.backendUrl;
+
+            const canvas = document.getElementById('capture-canvas');
+            const ctx    = canvas.getContext('2d');
+
+            // Exact renzu_multicharacter method: fetch nui-img → FileReader → dataUrl
+            const nuiImgUrl = `https://nui-img/${txd}/${txd}?t=${Date.now()}`;
+
+            fetch(nuiImgUrl)
+                .then(res => res.blob())
+                .then(blob => new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.onerror  = reject;
+                    reader.readAsDataURL(blob);
+                }))
+                .then(dataUrl => {
+                    return new Promise((resolve) => {
+                        const img = new Image();
+                        img.onload = () => resolve(img);
+                        img.onerror = () => resolve(null);
+                        img.src = dataUrl;
+                    });
+                })
+                .then(img => {
+                    if (!img) throw new Error('Image load failed');
+
+                    // BLACK background + circular clip (premium mugshot look)
+                    ctx.clearRect(0, 0, 512, 512);
+                    ctx.fillStyle = '#000000';
+                    ctx.fillRect(0, 0, 512, 512);
+
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(256, 256, 252, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.clip();
+                    ctx.drawImage(img, 0, 0, 512, 512);
+                    ctx.restore();
+
+                    return canvas.toDataURL('image/png');
+                })
+                .then(base64 => {
+                    // Upload DIRECTLY to backend from NUI (no PerformHttpRequest needed)
+                    return fetch(`${backendUrl}/api/screenshots/upload-avatar-base64`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'citizenid': citizenid
+                        },
+                        body: JSON.stringify({ image: base64 })
+                    });
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.success && data.url) {
+                        // Notify Lua with just the URL (no file data)
+                        fetch('https://shefra_sync/avatar_upload_done', {
+                            method: 'POST',
+                            body: JSON.stringify({ url: data.url, citizenid: citizenid })
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.error('[Shefra Sync] Mugshot error:', err);
+                });
+        });
+    </script>
+</body>
+</html>

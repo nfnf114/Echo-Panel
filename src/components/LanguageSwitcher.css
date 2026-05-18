@@ -1,0 +1,85 @@
+.lang-dropdown-wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+.lang-selector-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1a1a1a;
+  border: 1px solid rgba(139, 0, 0, 0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 120px;
+}
+
+.lang-selector-btn:hover {
+  background: #8b0000;
+  border-color: #a01010;
+  color: #fff;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-end: 0;
+  width: 220px;
+  padding: 8px;
+  background: #0d0d0d;
+  border: 1px solid rgba(139, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.lang-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #ccc;
+}
+
+.lang-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.lang-item.active {
+  background: rgba(139, 0, 0, 0.1);
+  border: 1px solid rgba(139, 0, 0, 0.3);
+  color: white;
+}
+
+.lang-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: initial;
+}
+
+.lang-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.lang-sub {
+  font-size: 11px;
+  color: #666;
+}
+
+.check-mark {
+  color: #8b0000;
+  font-weight: 700;
+}
+
+[dir="rtl"] .lang-menu {
+  inset-inline-end: auto;
+  inset-inline-start: 0;
+}

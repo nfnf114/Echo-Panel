@@ -1,0 +1,363 @@
+.client-area-page {
+  min-height: 100vh;
+  padding: 40px 60px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header-titles h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.header-titles p {
+  color: #888;
+  font-size: 16px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* Refresh Button Styling */
+.btn-outline {
+  background: #1a1a1a;
+  border: 1px solid rgba(139, 0, 0, 0.3);
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: #8b0000;
+  border-color: #a01010;
+  color: #fff;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.client-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Account Card */
+.account-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.account-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.account-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.account-header p {
+  font-size: 14px;
+  color: #666;
+}
+
+.user-profile-large {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-profile-large .username {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.user-profile-large .avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 1px solid rgba(139, 0, 0, 0.2);
+}
+
+.account-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(139, 0, 0, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #444;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.stat-value.text-small {
+  font-size: 14px;
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #888;
+  transition: all 0.2s;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tab-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+  background: #8b0000;
+  color: white;
+  border-color: #a01010;
+}
+
+.tab-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 40px;
+  min-height: 400px;
+}
+
+.section-header {
+  margin-bottom: 30px;
+}
+
+.section-header h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 15px;
+}
+
+/* Product Card */
+.product-card-large {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.p-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(139, 0, 0, 0.1);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-info h4 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.p-version {
+  font-size: 13px;
+  color: #8b0000;
+  font-weight: 700;
+}
+
+.download-latest-btn {
+  margin-inline-start: auto;
+  background: #8b0000;
+  color: white;
+  border: 1px solid #a01010;
+  padding: 12px 24px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.download-latest-btn:hover { background: #a01010; }
+
+.p-body p {
+  color: #888;
+  line-height: 1.6;
+}
+
+/* License Card Premium */
+.license-card-premium {
+  padding: 25px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.license-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.l-main-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.l-icon {
+  font-size: 24px;
+}
+
+.l-product-name {
+  font-size: 12px;
+  color: #666;
+}
+
+.badge-active { background: #22c55e; color: white; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+.badge-expired { background: #666; color: white; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+
+.license-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(139, 0, 0, 0.15);
+}
+
+.l-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.l-stat span { font-size: 11px; color: #444; font-weight: 800; text-transform: uppercase; }
+.l-stat strong { font-size: 14px; color: white; }
+
+/* Update Item */
+.update-item {
+  padding: 25px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.update-item.active {
+  border-color: rgba(139, 0, 0, 0.3);
+}
+
+.u-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.u-version { font-weight: 800; color: white; }
+.u-badge-new { background: #8b0000; color: white; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900; }
+.u-date { font-size: 12px; color: #666; margin-inline-start: auto; }
+
+.u-body ul {
+  padding-inline-start: 20px;
+  color: #888;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.u-download-btn {
+  margin-top: 10px;
+  background: #1a1a1a;
+  border: 1px solid rgba(139, 0, 0, 0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: white;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+
+.u-download-btn:hover {
+  background: #8b0000;
+  border-color: #a01010;
+  color: #fff;
+}
+
+@media (max-width: 960px) {
+  .account-stats { grid-template-columns: 1fr 1fr; }
+  .user-profile-large { position: static; margin-bottom: 20px; flex-direction: row-reverse; }
+}
