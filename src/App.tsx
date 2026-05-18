@@ -12,7 +12,7 @@ import CharacterDetail from './pages/CharacterDetail';
 import Screenshots from './pages/Screenshots';
 import Vehicles from './pages/Vehicles';
 import Gangs from './pages/Gangs';
-import Leaderboard from './pages/Leaderboard';
+// import Leaderboard from './pages/Leaderboard';
 import Inventory from './pages/Inventory';
 import Bans from './pages/Bans';
 import Admins from './pages/Admins';
