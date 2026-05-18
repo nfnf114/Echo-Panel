@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, NavLink, useNavigate, useParams } from 'react-router-dom';
 import { 
   LayoutDashboard, Users, Camera, UserSquare, Car, ShieldAlert, 
-  Package, Clock, Search, Trophy, Ban, ShieldCheck, FileText, 
+  Package, Clock, Search, Ban, FileText, 
   Settings, Key, LogOut, ChevronLeft, RefreshCw, Shield, Crown
 } from 'lucide-react';
 import type { User } from '../types';
@@ -185,7 +185,14 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ user }) => {
   };
 
   // Filter menu items based on permissions for admin users
-  const menuItems = [
+  type MenuItem = {
+    path: string;
+    label: string;
+    icon: JSX.Element;
+    badge?: string;
+  };
+
+  const menuItems: { section: string; items: MenuItem[] }[] = [
     { section: lang === 'ar' ? 'الرئيسية' : 'MAIN', items: [
       { path: 'dashboard', label: t('dashboard'), icon: <LayoutDashboard size={18} /> },
     ]},
