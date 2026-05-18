@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, Server, Package, LogOut, Settings, Users } from 'lucide-react';
 import clsx from 'clsx';
 import './Sidebar.css';
-import { User } from '../types';
+import type { User } from '../types';
 import { checkActiveSubscription } from '../utils/subscription';
 
 interface SidebarProps {
